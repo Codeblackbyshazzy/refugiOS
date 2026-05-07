@@ -5,6 +5,16 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 y este proyecto se rige por [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12] - 2026-05-07
+
+### Añadido
+- **Soporte de múltiples mirrors para ZIM:** Los entries en `KNOWLEDGE_CONFIG` ahora pueden tener `search_urls` (lista) además de `search_url`. Si la descarga directa desde un mirror falla, se prueba el siguiente en orden antes de caer a torrent.
+- **Fallback a torrent en descargas ZIM:** Si la descarga directa agota todos los mirrors, el instalador intenta automáticamente la descarga por BitTorrent como respaldo antes de reportar el error.
+- **Cascada de métodos de instalación robustecida:** Ahora si la descarga de un AppImage falla (wget retorna error), el instalador continúa probando Flatpak y APT en lugar de asumir éxito.
+
+### Cambiado
+- **WikiHow con triple mirror:** WikiHow ahora usa `cdimage.debian.org`, `mirror.netcologne.de` y `mirror-sites-ca.mblibrary.info` como fuentes de descarga, probándose en orden.
+
 ## [0.11] - 2026-04-28
 
 ### Añadido
